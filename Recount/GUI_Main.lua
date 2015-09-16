@@ -1666,7 +1666,9 @@ function Recount:ReportData(amount, loc, loc2)
 		if loc == "REALID" then
 			BNSendWhisper(loc2,"0. Total  "..(math_floor(10 * Total) / 10).." ("..PerSec..(math_floor(1000) / 10).."%)")
 		else
-			SendChatMessage("0. Total  "..(math_floor(10 * Total) / 10).." ("..PerSec..(math_floor(1000) / 10).."%)", loc, nil, loc2)
+			if PenisEn == 0 then
+				SendChatMessage("0. Total  "..(math_floor(10 * Total) / 10).." ("..PerSec..(math_floor(1000) / 10).."%)", loc, nil, loc2)
+			end	
 		end
 		-- H.Schuetz - End
 
@@ -1695,7 +1697,17 @@ function Recount:ReportData(amount, loc, loc2)
 			if loc == "REALID" then
 				BNSendWhisper(loc2, i..". "..reportTable[i][1].."  "..Recount.CommaNumber((math_floor(10 * reportTable[i][2]) / 10)).." ("..PerSec..percentage.."%)")
 			else
-				SendChatMessage(i..". "..reportTable[i][1].."  "..Recount.CommaNumber((math_floor(10 * reportTable[i][2]) / 10)).." ("..PerSec..percentage.."%)", loc, nil, loc2)
+				local penis
+				if PenisEn == 0 then
+					SendChatMessage(i..". "..reportTable[i][1].."  "..Recount.CommaNumber((math_floor(10 * reportTable[i][2]) / 10)).." ("..PerSec..percentage.."%)", loc, nil, loc2)
+				else
+					penis = "8"
+					for k=0,math.floor(((10*reportTable[i][2])/(10*reportTable[1][2]))*30) do
+						penis = penis..":"
+					end
+					penis = penis.."D"
+					SendChatMessage(i..". "..penis.."  ("..reportTable[i][1]..")",loc,nil,loc2)
+				end
 			end
 			-- H.Schuetz - End
 
