@@ -1,10 +1,10 @@
--- Recount Locale 
--- Please use the Localization App on WoWAce to Update this 
+-- Recount Locale
+-- Please use the Localization App on WoWAce to Update this
 -- http://www.wowace.com/projects/recount/localization/
- 
-local L = LibStub("AceLocale-3.0"):NewLocale("Recount", "ptBR") 
-if not L then return end 
- 
+
+local L = LibStub("AceLocale-3.0"):NewLocale("Recount", "ptBR")
+if not L then return end
+
 L["Ability"] = "Habilidade"
 L["Ability Name"] = "Nome da Habilidade"
 L["Absorbed"] = "Absorvido"
@@ -196,6 +196,8 @@ L["Mana Gained"] = "Mana ganha"
 L["Mana Sources"] = "Fontes de mana"
 L["Max"] = "Máx"
 L["Melee"] = "Corpo a Corpo"
+-- L["Merge Absorbs w/ Damage"] = "Merge Absorbs w/ Damage"
+L["Merge Absorbs w/ Heals"] = "Fundir a absorção e cura"
 L["Merge Pets w/ Owners"] = "Juntar Ajudantes c/ Donos"
 L["Messages"] = "Mensagens"
 L["Min"] = "Min"
@@ -203,6 +205,7 @@ L["Misc"] = "Mistura"
 L["Miss"] = "Falha"
 L["Mob"] = "Mob"
 L["Mobs"] = "Mobs"
+-- L["Multistrike"] = "Multistrike"
 L["Name of Ability"] = "Nome da Habilidade"
 L["Nature"] = "Natureza"
 L["Naturefire"] = "Fogo natural"
@@ -217,6 +220,7 @@ L["No"] = "Não"
 L["No Absorb"] = "Sem absorção"
 L["No Block"] = "Sem bloqueio"
 L["Non-Trivial"] = "Não-Trivial"
+L["No other Recount users found."] = "Não foram encontrados outros usuários de Recount."
 L["No Pet"] = "Nenhum Ajudante"
 L["No Resist"] = "Nenhuma resistência"
 L["Normalize"] = "Normalizar"
@@ -287,7 +291,7 @@ L["Reset Recount?"] = "Reinicializar Recount?"
 L["Resets the data"] = "Reinicializar os dados"
 L["Resets the positions of the detail, graph, and main windows"] = "Reiniciar as posições dos detalhes, gráficos e janela principal"
 L["Resist"] = "Resistência"
-L[" resisted"] = " resistiu" -- Needs review
+L[" resisted"] = " resistiu"
 L["Resisted"] = "Resistido"
 L["Ressed"] = "Ressuscitado"
 L["Ressed Who"] = "Ressuscitou quem"
@@ -300,7 +304,7 @@ L["Runic Power Gained"] = "Runa de Poder ganha"
 L["RunicPower Sources"] = "Fontes de Runas de Poder"
 L["'s Absorbs"] = "- Absorções"
 L["Say"] = "Diz"
-L["Scenario Instances"] = "Instâncias" -- Needs review
+L["Scenario Instances"] = "Instâncias"
 L["'s Dispels"] = "- Dissipações"
 L["'s DOT Uptime"] = "- Tempo de DoT"
 L["'s DPS"] = "'s DPS"
@@ -310,6 +314,7 @@ L["'s Effective Healing"] = "- Cura Efetiva"
 L["Self"] = "Próprio"
 L["'s Energy Gained"] = "- Energia Ganha"
 L["'s Energy Gained From"] = "- Energia Ganha De"
+L["Server Name"] = "Nome do reino"
 L["Set Combat Log Range"] = "Configurar tamanho do log de combate"
 L["Set the maximum number of lines to report"] = "Configurar o número maximo de linhas para reportar"
 L["Set the maximum number of recorded fight segments"] = "Configurar o máximo de número de fragmentos de lutas capturadas"
@@ -418,7 +423,6 @@ L["Window Color Selection"] = "Selecionar cores da janela"
 L["Window Options"] = "Opções da Janela"
 L["Window Scaling"] = "Escala da janela"
 L["X Gridlines Represent"] = "Representa as linhas de grade X"
-L["Yds"] = "Yds"
 L["Yes"] = "Sim"
- 
+
 

@@ -1,50 +1,36 @@
+local Recount = _G.Recount
 
-if false then
-
-function Recount:DPrint(str)
+local revision = tonumber(string.sub("$Revision: 1286 $", 12, -3))
+if Recount.Version < revision then
+	Recount.Version = revision
 end
 
---Recount.DPrint = function() end
+local _G = _G
 
-else
+local GetChatWindowInfo = GetChatWindowInfo
+local GetTime = GetTime
 
-Recount.Debug = true
+local NUM_CHAT_WINDOWS = NUM_CHAT_WINDOWS
+
+Recount.Debug = false
 
 function Recount:GetDebugFrame()
-	for i=1,NUM_CHAT_WINDOWS do
-		local windowName = GetChatWindowInfo(i);
+	for i = 1, NUM_CHAT_WINDOWS do
+		local windowName = GetChatWindowInfo(i)
 		if windowName == "Debug" then
-			return getglobal("ChatFrame" .. i)
+			return _G["ChatFrame"..i]
 		end
 	end
 end
 
 function Recount:DPrint(str)
+	if not Recount.Debug then
+		return
+	end
 	local debugframe = Recount:GetDebugFrame()
 
 	if debugframe then
-		Recount:Print(debugframe, str)
+		debugframe:AddMessage(str)
+		--Recount:Print(debugframe, str)
 	end
-end
-
-function Recount.TestCLLoad(load)
-   local timestamp, eventtype, srcGUID, srcName, srcFlags, dstGUID, dstName, dstFlags
-   
-   timestamp = GetTime()
-   eventtype = "SWING_DAMAGE"
-   srcGUID = 0x00000000007DB5FD
-   srcName = "Renetta"
-   srcFlags = 0x511
-   dstGUID = 0xF530005DDA2EA33A
-   --dstName = "Fanggore Worg"
-   dstName = "Archimonde"
-   dstFlags = 0x10a48
-   local earg1,earg2,earg3,earg4,earg5,earg6,earg7,earg8,earg9= 158,0,1,0,0,0,nil,nil,nil
-   for i=1,load do
-      Recount:CombatLogEvent(_,timestamp, eventtype, srcGUID, srcName, srcFlags, dstGUID, dstName, dstFlags,earg1,earg2,earg3,earg4,earg5,earg6,earg7,earg8,earg9)
-      Recount:CombatLogEvent(_,timestamp, eventtype, dstGUID, dstName, dstFlags, srcGUID, srcName, srcFlags,earg1,earg2,earg3,earg4,earg5,earg6,earg7,earg8,earg9)
---      3/7 17:29:14.878  SWING_DAMAGE,0xF530005DDA2EA33A,"Fanggore Worg",0x10a48,0x00000000007DB5FD,"Renetta",0x511,158,0,1,0,0,0,nil,nil,nil
-
-   end
-end
 end
