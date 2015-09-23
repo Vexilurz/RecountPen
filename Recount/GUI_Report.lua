@@ -149,6 +149,31 @@ function me:CreateReportWindow()
 	me.ReportWindow = Recount:CreateFrame("Recount_ReportWindow", L["Report Data"], 116, 200)
 
 	local theFrame = me.ReportWindow
+  local PenisRow= CreateFrame("Frame",nil,theFrame)
+
+	PenisRow:SetPoint("TOP",theFrame,"TOP",74,-34-35)
+  PenisRow:SetHeight(16)
+	PenisRow:SetWidth(30)
+	PenisRow.Text=PenisRow:CreateFontString(nil,"OVERLAY","GameFontHighlightSmall")
+	PenisRow.Text:SetPoint("LEFT",PenisRow,"LEFT",-25,0)
+	PenisRow.Text:SetText("8===D")
+	Recount:AddFontString(PenisRow.Text)
+	PenisRow.Enabled=CreateFrame("CheckButton",nil,PenisRow)
+	PenisRow.Enabled:SetPoint("RIGHT",PenisRow,"RIGHT",-4,0)
+	PenisRow.Enabled:SetWidth(16)
+	PenisRow.Enabled:SetHeight(16)
+	PenisRow.Enabled.id=100500
+	PenisRow.Enabled:SetScript("OnClick",function(this) if this:GetChecked() then PenisEn=1 else PenisEn=0 end end)
+	PenisRow.Enabled:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
+	PenisRow.Enabled:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
+	PenisRow.Enabled:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
+	PenisRow.Enabled:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
+	if PenisEn==0 then
+		PenisRow.Enabled:SetChecked(false)
+	else
+		PenisRow.Enabled:SetChecked(true)
+	end
+	PenisRow.Enabled:Show()
 
 	if me.Title then
 		theFrame.Title:SetText(L["Report Data"].." - "..me.Title)
