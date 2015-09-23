@@ -4,7 +4,7 @@ local AceLocale = LibStub("AceLocale-3.0")
 local L = AceLocale:GetLocale("Recount")
 local BossIDs = LibStub("LibBossIDs-1.0")
 
-local revision = tonumber(string.sub("$Revision: 1341 $", 12, -3))
+local revision = tonumber(string.sub("$Revision: 1343 $", 12, -3))
 if Recount.Version < revision then
 	Recount.Version = revision
 end
@@ -1432,7 +1432,7 @@ function Recount:CorrectTableData(who, datatype, secondary, amount)
 	who.Fights.OverallData[datatype] = who.Fights.OverallData[datatype] or {}
 	CurTable = who.Fights.OverallData[datatype][secondary]
 
-	if type(CurTable)~="table" then
+	if type(CurTable) ~= "table" then
 		who.Fights.OverallData[datatype][secondary] = Recount:GetTable()
 		CurTable = who.Fights.OverallData[datatype][secondary]
 		CurTable.count = 0
@@ -1446,7 +1446,7 @@ function Recount:CorrectTableData(who, datatype, secondary, amount)
 	if CurTable.count then
 		CurTable.count = CurTable.count - 1
 	end
-	CurTable.amount = CurTable.amount - amount
+	CurTable.amount = CurTable.amount - (amount or 0)
 
 	who.Fights.CurrentFightData = who.Fights.CurrentFightData or {}
 	who.Fights.CurrentFightData[datatype] = who.Fights.CurrentFightData[datatype] or {}
@@ -1463,7 +1463,7 @@ function Recount:CorrectTableData(who, datatype, secondary, amount)
 	if CurTable.count then
 		CurTable.count = CurTable.count - 1
 	end
-	CurTable.amount = CurTable.amount - amount
+	CurTable.amount = CurTable.amount - (amount or 0)
 end
 
 
@@ -1555,7 +1555,7 @@ function Recount:AddTableDataSum(who, datatype, secondary, detailtype, amount)
 		CurTable.Details = Recount:GetTable()
 	end
 
-	CurTable.amount = (CurTable.amount or 0) + amount
+	CurTable.amount = (CurTable.amount or 0) + (amount or 0)
 
 	--[[if detailtype == nil then
 		Recount:DPrint("DEBUG at: ".. (who or "nil").." "..(datatype or "nil").." ".. (secondary or "nil"))
@@ -1569,7 +1569,7 @@ function Recount:AddTableDataSum(who, datatype, secondary, detailtype, amount)
 	Details = CurTable.Details[detailtype]
 
 	if Details then
-		Details.count = Details.count + amount
+		Details.count = Details.count + (amount or 0)
 	end
 
 	--Now for the current fight data
@@ -1588,7 +1588,7 @@ function Recount:AddTableDataSum(who, datatype, secondary, detailtype, amount)
 		CurTable.Details = Recount:GetTable()
 	end
 
-	CurTable.amount = (CurTable.amount or 0) + amount
+	CurTable.amount = (CurTable.amount or 0) + (amount or 0)
 
 	if type(CurTable.Details[detailtype]) ~= "table" then
 		CurTable.Details[detailtype] = Recount:GetTable()
@@ -1598,7 +1598,7 @@ function Recount:AddTableDataSum(who, datatype, secondary, detailtype, amount)
 	Details = CurTable.Details[detailtype]
 
 	if Details then
-		Details.count = Details.count + amount
+		Details.count = Details.count + (amount or 0)
 	end
 end
 

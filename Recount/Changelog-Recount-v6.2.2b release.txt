@@ -1,0 +1,20 @@
+------------------------------------------------------------------------
+r1344 | resike | 2015-09-23 10:02:43 +0000 (Wed, 23 Sep 2015) | 1 line
+Changed paths:
+   A /tags/v6.2.2b release (from /trunk:1343)
+
+Tagging as v6.2.2b release
+------------------------------------------------------------------------
+r1343 | Resike | 2015-09-23 09:54:02 +0000 (Wed, 23 Sep 2015) | 2 lines
+Changed paths:
+   M /trunk/Tracker.lua
+
+- More phasing lua error fixes.
+- Some other smaller fixes.
+------------------------------------------------------------------------
+r1341 | Resike | 2015-09-02 20:11:44 +0000 (Wed, 02 Sep 2015) | 1 line
+Changed paths:
+   M /trunk/Tracker.lua
+
+- More phasing lua error fixes.
+------------------------------------------------------------------------

@@ -10,7 +10,6 @@ local DataVersion	= "1.3"
 local FilterSize	= 20
 local RampUp		= 5
 local RampDown		= 10
-local PenisEn = 0
 
 Recount.Version = tonumber(string.sub("$Revision: 1311 $", 12, -3))
 
